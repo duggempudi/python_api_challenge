@@ -1,15 +1,22 @@
-# Python Coding Challenge
-Hello, and welcome to the Python coding challenge!  You'll find a set of instructions below that you must attempt to complete within 3 days.  Clone this repository to start the challenge, and good luck!   When completed, push your solution to a new repository, and send us a link.
+# Changes made to the repositoty
 
-Within this repository, you will find a hastily thrown together application.  It's a very basic, a simple To-Do API with the ability to create and list your to-dos.
+created a new endpoint "/todos/{todoID}"
+created tests using pytest to test put and post http methods for the API
 
-Here are some things we need help with:
-
-- We have create and list features but lack the ability to update.  Introduce a new PUT endpoint at `/todos/{todoID}` that receives a JSON body containing title and status.  The feature should update the existing record and return a JSON body representing the new state of the todo item.
-
-- You may notice the lack of tests in the repo, maybe set a good example and add tests to your method if you have time.  That way the other devs can copy-paste from your good example.  Once done, go ahead and open a pull request again the repo.
-
-- As mentioned before, we have create and list already in place.  The dev team was super excited because they knocked this out faster than anyone thought, maybe too fast.  Feel free to open a GitHub issue and point out some of those shortcuts.  If you're feeling bold, Pull Requests are always welcome!
+# How to set the environment
+1.Clone the repository
+2.pip install -r requirements.txt
+3.install postgresql
+3.create a user
+4.create a database with databasename
+5.psql databasename <todo_schema.sql
+6.start postgesql
+7.Setup environment variables for the program to access the databse.
+8.start server to run the app using `uwsgi uwsgi.ini --py-auto-reload 1 --worker-reload-mercy 5`
+9. GET request : curl --request GET https://localhost:8080/todos
+10. POST request :curl --request POST --body '{"Title":"newtitle","status":"newstatus"}' https://localhost:8080/todos
+11. PUT request :curl --request PUT --body '{"Title":"newtitle","status":"newstatus"}' https://localhost:8080/todos/1
+12. To run the tests: pytest test
 
 # Setup
 Within the repo you will find a `docker-compose.yaml` file. If you're familiar with docker and docker-compose, great! You can get started by simply running `docker-compose up` and that will create an API and Postgres container for you.
